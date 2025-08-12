@@ -1,0 +1,8 @@
+<h2>My Enrollments</h2>
+<ul>
+  {% for enrollment in courses %}
+    <li>{{ enrollment.course.code }} - {{ enrollment.course.name }}</li>
+  {% empty %}
+    <li>No enrollments yet.</li>
+  {% endfor %}
+</ul>

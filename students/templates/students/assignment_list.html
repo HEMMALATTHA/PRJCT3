@@ -1,0 +1,8 @@
+<h2>My Assignments</h2>
+<ul>
+  {% for a in assignments %}
+    <li>{{ a.title }} - <a href="{{ a.document.url }}">Download</a> (uploaded at {{ a.uploaded_at }})</li>
+  {% empty %}
+    <li>No assignments uploaded yet.</li>
+  {% endfor %}
+</ul>

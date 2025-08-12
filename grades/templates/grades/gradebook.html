@@ -1,0 +1,14 @@
+<h2>My Grades</h2>
+<a href="{% url 'export_grades_csv' %}">Export Grades CSV</a>
+
+<table border="1">
+  <tr><th>Course</th><th>Grade</th></tr>
+  {% for grade in grades %}
+    <tr>
+      <td>{{ grade.course.name }}</td>
+      <td>{{ grade.grade }}</td>
+    </tr>
+  {% empty %}
+    <tr><td colspan="2">No grades yet</td></tr>
+  {% endfor %}
+</table>

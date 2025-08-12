@@ -1,0 +1,13 @@
+<h2>My Attendance Records</h2>
+<table border="1">
+  <tr><th>Date</th><th>Course</th><th>Present</th></tr>
+  {% for record in records %}
+    <tr>
+      <td>{{ record.date }}</td>
+      <td>{{ record.course.name }}</td>
+      <td>{{ record.present }}</td>
+    </tr>
+  {% empty %}
+    <tr><td colspan="3">No records found</td></tr>
+  {% endfor %}
+</table>

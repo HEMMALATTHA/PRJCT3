@@ -1,0 +1,28 @@
+<h2>Attendance Calendar (Last 7 Days)</h2>
+<table border="1">
+  <tr>
+    <th>Course \ Date</th>
+    {% for d in dates %}
+      <th>{{ d }}</th>
+    {% endfor %}
+  </tr>
+  {% for course, presence_list in attendance.items %}
+    <tr>
+      <td>{{ course.name }}</td>
+      {% for present in presence_list %}
+        <td class="{% if present %}present{% else %}absent{% endif %}">
+          {{ present|yesno:"Present,Absent" }}
+        </td>
+      {% endfor %}
+    </tr>
+  {% endfor %}
+</table>
+
+<style>
+  .present {
+    background-color: lightgreen;
+  }
+  .absent {
+    background-color: lightcoral;
+  }
+</style>

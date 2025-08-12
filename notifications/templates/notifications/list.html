@@ -1,0 +1,10 @@
+<h2>Notifications</h2>
+<ul>
+  {% for note in notifications %}
+    <li {% if not note.read %}style="font-weight:bold;"{% endif %}>
+      {{ note.message }} - {{ note.created_at }}
+    </li>
+  {% empty %}
+    <li>No notifications</li>
+  {% endfor %}
+</ul>
